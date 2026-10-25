@@ -1,1 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Das Grauen naht...</title>
+    <style>
+        body {
+            background-color: #0b0202;
+            color: #d11a2a;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding: 50px 20px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+        h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #ff3300;
+            color: #ff5500;
+        }
+        .subtitle {
+            color: #888;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+        #countdown {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .time-box {
+            background: rgba(20, 5, 5, 0.8);
+            border: 2px solid #d11a2a;
+            box-shadow: 0 0 15px rgba(209, 26, 42, 0.4);
+            border-radius: 8px;
+            padding: 20px;
+            min-width: 80px;
+        }
+        .number {
+            font-size: 3rem;
+            font-weight: bold;
+            display: block;
+            color: #fff;
+            text-shadow: 0 0 8px #d11a2a;
+        }
+        .label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: #ff5500;
+            margin-top: 5px;
+            display: block;
+        }
+        .footer {
+            margin-top: 50px;
+            font-size: 1.2rem;
+            color: #d11a2a;
+            animation: blink 2s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+    </style>
+</head>
+<body>
 
+    <h1>Das Grauen naht...</h1>
+    <div class="subtitle">Die Zeit rinnt unaufhaltsam davon.</div>
+
+    <div id="countdown">
+        <div class="time-box"><span class="number" id="days">00</span><span class="label">Tage</span></div>
+        <div class="time-box"><span class="number" id="hours">00</span><span class="label">Std</span></div>
+        <div class="time-box"><span class="number" id="minutes">00</span><span class="label">Min</span></div>
+        <div class="time-box"><span class="number" id="seconds">00</span><span class="label">Sek</span></div>
+    </div>
+
+    <div class="footer">🎃 Es gibt kein Entkommen. 🎃</div>
+
+    <script>
+        // Ziel-Datum: 31. Oktober um 18:00 Uhr
+        const targetDate = new Date("Oct 31, 2026 18:00:00").getTime();
+
+        const updateCountdown = setInterval(function() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference < 0) {
+                clearInterval(updateCountdown);
+                document.body.innerHTML = "<h1>Die Geisterstunde hat begonnen! 🧟‍♂️🩸</h1>";
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+        }, 1000);
+    </script>
+</body>
+</html>
