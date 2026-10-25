@@ -7,7 +7,7 @@
     <style>
         body {
             background-color: #0b0202;
-            color: #d11a2a;
+            color: #ff0000;
             font-family: 'Courier New', Courier, monospace;
             text-align: center;
             padding: 50px 20px;
@@ -22,14 +22,10 @@
             font-size: 2.5rem;
             text-transform: uppercase;
             letter-spacing: 3px;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px #ff3300;
-            color: #ff5500;
-        }
-        .subtitle {
-            color: #888;
-            font-size: 1.1rem;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+            color: #ff0000;
+            text-shadow: 0 0 15px #ff0000, 0 0 30px #b30000;
+            font-weight: 900;
         }
         #countdown {
             display: flex;
@@ -38,9 +34,9 @@
             flex-wrap: wrap;
         }
         .time-box {
-            background: rgba(20, 5, 5, 0.8);
-            border: 2px solid #d11a2a;
-            box-shadow: 0 0 15px rgba(209, 26, 42, 0.4);
+            background: rgba(20, 5, 5, 0.9);
+            border: 2px solid #ff0000;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
             border-radius: 8px;
             padding: 20px;
             min-width: 80px;
@@ -50,19 +46,19 @@
             font-weight: bold;
             display: block;
             color: #fff;
-            text-shadow: 0 0 8px #d11a2a;
+            text-shadow: 0 0 8px #ff0000;
         }
         .label {
             font-size: 0.8rem;
             text-transform: uppercase;
-            color: #ff5500;
+            color: #ff0000;
             margin-top: 5px;
             display: block;
         }
         .footer {
             margin-top: 50px;
             font-size: 1.2rem;
-            color: #d11a2a;
+            color: #ff0000;
             animation: blink 2s infinite;
         }
         @keyframes blink {
@@ -73,8 +69,7 @@
 </head>
 <body>
 
-    <h1>Das Grauen naht...</h1>
-    <div class="subtitle">Die Zeit rinnt unaufhaltsam davon.</div>
+    <h1>Es gibt kein Entkommen mehr... Schau wie die Zeit abläuft!</h1>
 
     <div id="countdown">
         <div class="time-box"><span class="number" id="days">00</span><span class="label">Tage</span></div>
@@ -83,10 +78,10 @@
         <div class="time-box"><span class="number" id="seconds">00</span><span class="label">Sek</span></div>
     </div>
 
-    <div class="footer">🎃 Es gibt kein Entkommen. 🎃</div>
+    <div class="footer">🎃 Die Geisterstunde naht. 🎃</div>
 
     <script>
-        // Ziel-Datum: 31. Oktober um 18:00 Uhr
+        // Ziel-Datum: 31. Oktober 2026 um 18:00 Uhr
         const targetDate = new Date("Oct 31, 2026 18:00:00").getTime();
 
         const updateCountdown = setInterval(function() {
